@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category: MyString
+  image: MyString
+  month: MyString
+  matched: false
+  player: one
+
+two:
+  category: MyString
+  image: MyString
+  month: MyString
+  matched: false
+  player: two
