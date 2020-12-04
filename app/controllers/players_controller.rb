@@ -6,7 +6,7 @@ class PlayersController < ApplicationController
         render json:  PlayerSerializer.new(players)
     end
 
-    def show 
+    def show  
         player = Player.find_by(id: params[:id])
         render json: PlayerSerializer.new(player)
     end
