@@ -8,4 +8,11 @@ class GamesController < ApplicationController
             render json: {errors: game.errors.full_messages.to_sentence}
         end
     end
+
+
+    private
+
+    def game_params
+        params.require(:game).permit(:username)
+    end
 end
