@@ -12,12 +12,15 @@
 
 ActiveRecord::Schema.define(version: 2020_12_04_003849) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "cards", force: :cascade do |t|
     t.string "category"
     t.string "image"
     t.string "month"
     t.boolean "matched"
-    t.integer "player_id", null: false
+    t.bigint "player_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["player_id"], name: "index_cards_on_player_id"
