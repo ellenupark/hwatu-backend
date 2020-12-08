@@ -18,7 +18,7 @@ class CardsController < ApplicationController
     def update
         card = Card.find_by_id(params[:id])
         card.update(player_id: params[:player_id]);
-        options = {
+            options = {
             include: [:player]
         }
         render json: CardSerializer.new(card, options)
