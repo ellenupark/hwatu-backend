@@ -1,7 +1,13 @@
 class CardsController < ApplicationController
     def index
-        cards = Card.all
-        render json: CardSerializer.new(cards)
+        if params[:player_id]
+            player = player.find_by_id(params[:player_id])
+            cards = Card.all
+            render json: CardSerializer.new(card)
+        else
+            cards = Card.all
+            render json: CardSerializer.new(cards)
+        end
     end
 
     def show
