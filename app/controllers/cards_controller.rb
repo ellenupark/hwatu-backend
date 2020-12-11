@@ -1,8 +1,7 @@
 class CardsController < ApplicationController
     def index
         if params[:player_id]
-            player = player.find_by_id(params[:player_id])
-            cards = Card.all
+            card = Card.retrieve_card_from_deck
             render json: CardSerializer.new(card)
         else
             cards = Card.all
