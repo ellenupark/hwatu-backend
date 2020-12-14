@@ -4,12 +4,26 @@ class GamesController < ApplicationController
         render json: GameSerializer.new(games)
     end
 
+    def history
+         
+    end
+
     def create
         game = Game.new(game_params)
 
         if game.save
             render json: GameSerializer.new(game)
         else
+            render json: {errors: game.errors.full_messages.to_sentence}
+        end
+    end
+
+    def update
+        game = Game.find_by_id(params[:id])
+        if game.update(game_params);
+            debugger
+            render json: GameSerializer.new(game)
+        else 
             render json: {errors: game.errors.full_messages.to_sentence}
         end
     end
