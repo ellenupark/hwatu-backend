@@ -5,7 +5,8 @@ class GamesController < ApplicationController
     end
 
     def history
-         
+        games = Game.retrieve_top_ten_games
+        render json: GameSerializer.new(games)
     end
 
     def create
